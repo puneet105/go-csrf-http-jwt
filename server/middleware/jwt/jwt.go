@@ -21,6 +21,10 @@ var (
 	pubKey *rsa.PublicKey
 )
 
+//openssl command to generate public and private .pem encoded keys
+//openssl genrsa -out private.pem 2048 && cp private.pem keys/app.rsa
+//openssl rsa -in private.pem -pubout -out public.pem && cp public.pem keys/app.rsa.pub
+
 func InitJwt() error{
 	privBytes, err := ioutil.ReadFile(privateKeyPath)
 	if err != nil{
